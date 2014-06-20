@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="iso-8859-1"></meta>
+		<meta content="width=device-width" name="viewport"></meta>
+		<title>Menu</title>
+		<link type="text/css" href="styles/main.css" rel="stylesheet"></link>
+	</head>
+	<body>
+		<div class="dim"></div>
+		<nav class="sliderMenu">
+			<header>
+				<img class="closed" src="img/ic_menu.png" alt="menu icon">
+				<span>Menu title</span>
+			</header>
+			<ul class="closed"></ul>
+		</nav>
+		<section class="content">
+			<h1>Test menus</h1>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis tellus non convallis luctus. Vestibulum diam ipsum, pharetra nec odio et, sagittis bibendum sem. Etiam vulputate libero odio, ut egestas turpis accumsan et. Sed porta eros vitae facilisis scelerisque. Phasellus risus lacus, scelerisque sit amet gravida vitae, lacinia et felis. Suspendisse ullamcorper id ipsum eget tempus. Nam quis pulvinar tellus. Integer blandit egestas pretium. Cras rhoncus ornare ultricies. Fusce tristique id ipsum ac consectetur.
+			</p>
+		</section>
+	</body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="scripts/menu.js"></script>
+	<script>
+
+		$(document).ready(function () {
+			var categories = [
+				{id: 'listen', label: 'A écouter'},
+				{id: 'biblio', label: 'Ma bibliothèque'},
+				{id: 'playlists', label: 'Playlists'},
+				{id: 'mix', label: 'Mix instantanés aléatoires'},
+				{id: 'buy', label: 'Acheter'}
+			];
+			window.app.menuComponent.init('Musique', categories);
+			$(document).on('menuItem:selected', function (event, data) {
+				console.log(data);
+				window.app.menuComponent.toggle();
+			});
+		});
+	</script>
+</html>
